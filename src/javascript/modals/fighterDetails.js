@@ -12,13 +12,14 @@ function createFighterDetails(fighter) {
   const attack = fighter.attack;
   const defense = fighter.defense;
   const health = fighter.health;
-
+  const attributes = { src: fighter.sourse };
 
   const fighterDetails = createElement({ tagName: 'div', className: 'modal-body' });
   const nameElement = createElement({ tagName: 'span', className: 'fighter-name' });
   const attackElement = createElement({ tagName: 'span', className: 'fighter-attack' });
   const defenseElement = createElement({ tagName: 'span', className: 'fighter-defense' });
   const healthElement = createElement({ tagName: 'span', className: 'fighter-health' });
+  const imgElement = createElement({ tagName: 'img', className: 'fighter-image', attributes });
 
   nameElement.innerText = 'Fighter name: ' + name + '\n';
   attackElement.innerText = 'Attack: ' + attack + '\n';
@@ -26,7 +27,7 @@ function createFighterDetails(fighter) {
   healthElement.innerText = 'Health: ' + health + '\n';
 
 
-  fighterDetails.append(nameElement,attackElement,defenseElement,healthElement);
+  fighterDetails.append(imgElement,nameElement,attackElement,defenseElement,healthElement);
 
   return fighterDetails;
 }
