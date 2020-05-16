@@ -25,12 +25,17 @@ export function fight(firstFighter, secondFighter) {
   }
   if(firstFighter.attack > secondFighter.attack){
     if(firstFighter.defense > secondFighter.defense){
-      winner = firstFighter;
+      if(firstFighter.health > secondFighter.health){
+        winner = firstFighter;
+      }
     }
   }
   else if (secondFighter.attack >= firstFighter.attack){
     if(secondFighter.defense > firstFighter.defense) {
-      winner = secondFighter;
+      if(secondFighter.health > firstFighter.health){
+        winner = secondFighter;
+      }
+      
     }
   }
   
@@ -39,21 +44,24 @@ export function fight(firstFighter, secondFighter) {
 
 export function getDamage(attacker, enemy) {
   
-  const damage = getHitPower(attacker) - getBlockPower(enemy);
+  var damage = getHitPower(attacker) - getBlockPower(enemy);
+  if (damage <= 0) {
+    damage = 0;
+  }
   return damage;
 
 }
 
 export function getHitPower(fighter) {
-  const criticalHitChance = Math.floor(Math.random() * 2);
+  const randomNumber = Math.floor(Math.random() * 2);
   const attack = fighter.attack;
-  const power = criticalHitChance * attack;
+  const power = randomNumber * attack;
   return power;
 }
 
 export function getBlockPower(fighter) {
-  const dodgeChance = Math.floor(Math.random() * 2);
+  const randomNumber = Math.floor(Math.random() * 2);
   const defense = fighter.defense;
-  const power = dodgeChance * defense;
+  const power = randomNumber * defense;
   return power;
 }
