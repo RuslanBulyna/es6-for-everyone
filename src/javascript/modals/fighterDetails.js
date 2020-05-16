@@ -12,7 +12,7 @@ function createFighterDetails(fighter) {
   const attack = fighter.attack;
   const defense = fighter.defense;
   const health = fighter.health;
-  const attributes = { src: fighter.sourse };
+  const attributes = { src: fighter.source };
 
   const fighterDetails = createElement({ tagName: 'div', className: 'modal-body' });
   const nameElement = createElement({ tagName: 'span', className: 'fighter-name' });
@@ -21,7 +21,8 @@ function createFighterDetails(fighter) {
   const healthElement = createElement({ tagName: 'span', className: 'fighter-health' });
   const imgElement = createElement({ tagName: 'img', className: 'fighter-image', attributes });
 
-  nameElement.innerText = 'Fighter name: ' + name + '\n';
+
+  nameElement.innerText = '\n' + 'Fighter name: ' + name + '\n';
   attackElement.innerText = 'Attack: ' + attack + '\n';
   defenseElement.innerText = 'Defense: ' +  defense + '\n';
   healthElement.innerText = 'Health: ' + health + '\n';
